@@ -27,5 +27,6 @@ class UserVH(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(bin
         }
         binding.tvDate.text = convertedString
         binding.tvStatus.text = userEntity.state
+
     }
 }
