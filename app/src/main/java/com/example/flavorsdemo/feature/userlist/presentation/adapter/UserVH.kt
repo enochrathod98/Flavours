@@ -1,11 +1,9 @@
 package com.example.flavorsdemo.feature.userlist.presentation.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flavorsdemo.databinding.ItemUserBinding
 import com.example.flavorsdemo.feature.userlist.domain.entity.UserEntity
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,7 +24,7 @@ class UserVH(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(bin
 
         }
         binding.tvDate.text = convertedString
-        binding.tvStatus.text = userEntity.state
+        binding.tvStatus.text = userEntity.state.toString()
 
     }
 }
