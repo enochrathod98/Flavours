@@ -18,9 +18,8 @@ class MultipleViewModel @Inject constructor(val useCase: MultipleViewUseCase) : 
         loadData()
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModelScope.launch {
-
             val view = when (val resource = useCase()) {
                 is Resource.Error -> MultipleViewVO.Error(
                     resource.error.message ?: "Something went wrong"
