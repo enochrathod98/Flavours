@@ -2,6 +2,7 @@ package com.example.flavorsdemo.feature.multipleview.presentation
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,7 +30,18 @@ class MultipleViewActivity : AppCompatActivity() {
 
         viewModel.dataView.observe(this) {
             Log.d("Activity", it.toString())
-            adapter.items = (it as? MultipleViewVO.Loaded)?.users ?: emptyList()
+            when (it) {
+                is MultipleViewVO.Progress -> {
+                    binding.progress.visibility = View.VISIBLE
+                }
+                is MultipleViewVO.Loaded -> {
+                    binding.progress.visibility = View.GONE
+                    adapter.items = (it as? MultipleViewVO.Loaded)?.users ?: emptyList()
+                }
+                is MultipleViewVO.Error -> {
+                    binding.progress.visibility = View.GONE
+                }
+            }
         }
     }
 }

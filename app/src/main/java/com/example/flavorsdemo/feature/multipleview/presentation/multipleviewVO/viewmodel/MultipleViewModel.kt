@@ -1,5 +1,6 @@
 package com.example.flavorsdemo.feature.multipleview.presentation.multipleviewVO.viewmodel
 
+import androidx.annotation.OpenForTesting
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@OpenForTesting
 @HiltViewModel
 class MultipleViewModel @Inject constructor(val useCase: MultipleViewUseCase) : ViewModel() {
     val dataView = MutableLiveData<MultipleViewVO>(MultipleViewVO.Progress)
